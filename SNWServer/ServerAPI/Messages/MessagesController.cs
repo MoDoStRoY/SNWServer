@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SNWServer.Config.Objects.Messages;
 using SNWServer.Config.Objects.System;
 using System;
 using System.Collections.Generic;
@@ -15,9 +17,9 @@ namespace SNWServer.ServerAPI.Messages
         Server server = Program.server;
 
         [HttpPost]
-        public List<String> SendMessage([FromBody]String message)
+        [Route ("send")]
+        public List<Message> SendMessage([FromBody]Message message)
         {
-            System.Diagnostics.Debug.WriteLine(message);
             server.messagesList.Add(message);
 
             return server.messagesList;
