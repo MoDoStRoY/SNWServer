@@ -10,6 +10,7 @@ namespace SNWServer.Config.Objects.System
     {
 
         public List<Message> messagesList = new List<Message>();
+        public List<UserSNW> usersList = new List<UserSNW>();
 
     }
 }
